@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgb(44, 42, 42);
+}
+.dna-box{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    margin: 0 10px;
+    transform: rotateZ(-20deg);
+    animation: rot 5s linear infinite;
+    animation-delay: calc(4s);
+}
+span{
+    position: relative;
+    height: 100px;
+    width: 1px;
+    border: 1px solid #e7e7e7;
+    box-shadow: 0 0 15px #e7e7e7;
+    background: transparent;
+    margin: 0 10px;
+    animation: rotate 2s linear infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+@keyframes rotate{
+    0%{
+        transform: perspective(700px) rotateX(0deg);
+    }
+    100%{
+        transform: perspective(700px) rotateX(360deg);
+    }
+}
+@keyframes rot{
+    0%{
+        transform: perspective(700px) rotateX(-20deg);
+    }
+    100%{
+        transform: perspective(700px) rotateX(20deg);
+    }
+}
+span::before{
+    top: -5px;
+    left: -5px;
+}
+span::after{
+    bottom: -5px;
+    left: -5px;
+}
+span::before, span::after{
+    content: "";
+    height: 10px;
+    width: 10px;
+    background-color: aqua;
+    border-radius: 50%;
+    position: absolute;
+}
